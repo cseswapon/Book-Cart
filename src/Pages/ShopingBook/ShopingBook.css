@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Damion&family=Dancing+Script&family=Great+Vibes&family=Lobster&family=Mochiy+Pop+P+One&display=swap');
+.text-context h1{
+    font-family: 'Great Vibes', cursive;
+}
+.text-context h1::after {
+    content: '';
+    display: block;
+    height: 2px;
+    margin: 15px;
+    left: 90%;
+    background: #ffffff;
+}
