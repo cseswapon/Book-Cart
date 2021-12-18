@@ -1,8 +1,9 @@
 import React from "react";
 import "./ShopingBook.css";
-import book from '../../fackData/book.json';
 import SingleShopingBook from '../SingleShopingBook/SingleShopingBook'
+import { useSelector } from "react-redux";
 const ShopingBook = () => {
+  const book = useSelector((state)=>state.cart.bookList)
   return (
     <>
       <div className="my-4 text-context">
