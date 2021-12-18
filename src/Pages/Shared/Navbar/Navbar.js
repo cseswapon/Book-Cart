@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 const NavBar = () => {
   const { user, singOut } = useFirebase();
   const { cartList } = useSelector((state) => state.cart);
+  console.log(user);
   return (
     <Navbar variant="dark" sticky="top" bg="dark">
       <Container fluid className="align-items-center">
@@ -16,6 +17,9 @@ const NavBar = () => {
         </NavLink>
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
+          <NavLink className="book-logo" to="/home">
+            Home
+          </NavLink>
           <NavLink
             className={
               !cartList.length > 0
@@ -30,6 +34,12 @@ const NavBar = () => {
               <span className="visually-hidden">unread messages</span>
             </span>
           </NavLink>
+          <img
+            style={{ width: "40px", borderRadius: "50%" }}
+            className="mx-2"
+            src={user?.photoURL}
+            alt="avtor"
+          />
           <Navbar.Text>
             Signed in as : <NavLink to="/home">{user.displayName}</NavLink>
           </Navbar.Text>

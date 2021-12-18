@@ -3,6 +3,7 @@ import Home from "./Pages/Home/Home";
 import Login from "./Pages/Login/Login";
 import PrivateRoute from "./Pages/PrivateRoute/PrivateRoute";
 import Cart from "./Pages/Cart/Cart";
+import Notfound from "./Pages/Notfound/Notfound";
 function App() {
   return (
     <>
@@ -27,6 +28,7 @@ function App() {
           />
           <Route path="/cart" element={<Cart></Cart>} />
           <Route path="/login" element={<Login></Login>} />
+          <Route path="*" element={<Notfound></Notfound>} />
         </Routes>
       </BrowserRouter>
     </>
