@@ -3,8 +3,10 @@ import { Container, Navbar } from "react-bootstrap";
 import useFirebase from "../../../hook/useFirebase";
 import { NavLink } from "react-router-dom";
 import "./Navbar.css";
+import { useSelector } from "react-redux";
 const NavBar = () => {
   const { user, singOut } = useFirebase();
+  const { cartList } = useSelector((state) => state.cart);
   return (
     <Navbar variant="dark" sticky="top" bg="dark">
       <Container fluid className="align-items-center">
@@ -14,10 +16,17 @@ const NavBar = () => {
         </NavLink>
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
-          <NavLink className="mx-md-3 book-logo" to="/cart">
+          <NavLink
+            className={
+              !cartList.length > 0
+                ? `disabled-link mx-md-3 book-logo`
+                : `mx-md-3 book-logo`
+            }
+            to="/cart"
+          >
             Cart <i className="fas fa-cart-arrow-down"></i>
             <span className="translate-middle badge rounded-pill bg-danger translate-middle-y">
-              99+
+              {cartList.length}
               <span className="visually-hidden">unread messages</span>
             </span>
           </NavLink>

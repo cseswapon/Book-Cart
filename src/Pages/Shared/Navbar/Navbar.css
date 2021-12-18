@@ -1,7 +1,10 @@
 .book-logo {
   text-decoration: none;
-  color:white
+  color: white;
 }
-.book-logo:hover{
-    color: white;
+.book-logo:hover {
+  color: white;
+}
+.disabled-link {
+  pointer-events: none;
 }

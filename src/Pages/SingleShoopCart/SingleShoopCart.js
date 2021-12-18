@@ -1,12 +1,12 @@
 import React from 'react';
-import Button from "react-bootstrap/Button";
-import { useDispatch } from "react-redux";
-import { addToCartList } from '../Redux/slice/cartSlice';
-const SingleShopingBook = ({book}) => {
-  const { author, coverImageUrl, synopsis } = book;
-  const dispatch = useDispatch();
-  return (
-    
+import { Button } from 'react-bootstrap';
+import { useDispatch } from 'react-redux';
+import { removeToCartList } from '../Redux/slice/cartSlice';
+const SingleShoopCart = ({ cart }) => {
+    console.log(cart.id);
+    const { coverImageUrl, author, synopsis } = cart
+    const dispatch = useDispatch();
+    return (
       <>
         <div className="mb-3" style={{ maxWidth: "540px" }}>
           <div className="row g-2 align-items-center">
@@ -22,8 +22,11 @@ const SingleShopingBook = ({book}) => {
                 <h3 className="card-title">{author}</h3>
                 <p className="card-text">{synopsis?.slice(0, 250)}...</p>
                 <p className="card-text">
-                  <Button onClick={()=>dispatch(addToCartList(book))} variant="primary">
-                    Add to Cart <i className="fas fa-cart-plus"></i>
+                  <Button
+                    onClick={() => dispatch(removeToCartList(cart?.id))}
+                    variant="danger"
+                  >
+                    Delete <i className="fas fa-trash-alt"></i>
                   </Button>
                 </p>
               </div>
@@ -34,4 +37,4 @@ const SingleShopingBook = ({book}) => {
     );
 };
 
-export default SingleShopingBook;
+export default SingleShoopCart;
